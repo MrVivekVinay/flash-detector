@@ -6,7 +6,7 @@ import numpy as np
 # 1. Load the model (Cached so it doesn't reload on every click)
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model('flash_detection_model.h5')
+    model = tf.keras.models.load_model('flash_detection_model.keras')
     return model
 
 model = load_model()
@@ -44,4 +44,5 @@ if file is not None:
     if score > 0.5:
         st.error(f"**Result: NO FLASH DETECTED** ({score:.2%} confidence)")
     else:
+
         st.success(f"**Result: FLASH DETECTED** ({(1-score):.2%} confidence)")
