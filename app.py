@@ -3,10 +3,9 @@ import tensorflow as tf
 from PIL import Image, ImageOps
 import numpy as np
 
-# 1. Load the model (Cached so it doesn't reload on every click)
+# Use the new .keras filename and skip compilation for better compatibility
 @st.cache_resource
 def load_model():
-    # compile=False skips the strict layer-matching validation
     model = tf.keras.models.load_model('flash_detection_model.keras', compile=False)
     return model
 
@@ -47,4 +46,5 @@ if file is not None:
     else:
 
         st.success(f"**Result: FLASH DETECTED** ({(1-score):.2%} confidence)")
+
 
