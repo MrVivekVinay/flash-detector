@@ -10,7 +10,7 @@ st.set_page_config(page_title="Flash Detector", page_icon="📸")
 # 2. Model Loading (with Error Handling)
 @st.cache_resource
 def load_model():
-    model_path = 'flash_detection_model.keras'
+    model_path = 'flash_detection_model_v2_final.keras'
     if not os.path.exists(model_path):
         st.error(f"Model file not found at {model_path}. Checking directory...")
         st.write("Files found:", os.listdir("."))
@@ -46,3 +46,4 @@ if model:
             st.success(f"**FLASH DETECTED** (Confidence: {100*(1-score):.1f}%)")
         else:
             st.error(f"**NO FLASH** (Confidence: {100*score:.1f}%)")
+
