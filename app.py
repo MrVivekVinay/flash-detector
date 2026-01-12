@@ -42,8 +42,9 @@ if model:
 
         st.divider()
         # Logic: 0 is usually 'Flash', 1 is 'No Flash' (check your training labels)
-        if score < 0.5:
+        if score < 0.4:
             st.success(f"**FLASH DETECTED** (Confidence: {100*(1-score):.1f}%)")
         else:
             st.error(f"**NO FLASH** (Confidence: {100*score:.1f}%)")
+
 
